@@ -1,0 +1,22 @@
+{
+  "name": "01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "tailwind": "npx @tailwindcss/cli -i ./renderer/styles/input.css -o ./renderer/styles/output.css --watch",
+    "dev": "concurrently \"npm run tailwind\" \"npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "concurrently": "^10.0.4",
+    "electron": "^43.3.0",
+    "tailwindcss": "^4.3.3"
+  }
+}

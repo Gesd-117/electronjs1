@@ -1,0 +1,83 @@
+===============================
+Crear Aplicación de ElectronJS
+===============================
+
+1.- Verificar si tenemos instalado NodeJS y npm
+	ejecutar des la terminal estos comandos:
+	
+	node --version
+	
+	npm --version
+	
+2.- crear una carpeta para nuestro aplicación
+	y desde la terminal abrir visual studio code
+	con este comando:
+	
+	code .
+	
+3.- En la terminal ejecutar el comando:
+
+	npm init --yes
+	
+	Esto crear el archivo package.json
+	
+4.- Configurar tu archivo package.json
+	la siguiente clave:
+	
+	"type": "module",
+	
+5.- Instalar ElectronJS como dependencia de desarrollo:
+
+	npm install electron --save-dev
+	
+6.- Crear en la raiz del proyecto el archivo jsconfig.json
+	con el siguiente contenido:
+
+	{
+		"compilerOptions": {
+			"target": "es2025",
+			"checkJs": true,
+		}
+	}
+	
+7.- Crear la carpeta src y dentro el archivo main.js
+	con el siguiente contenido:
+	
+	import { app, BrowserWindow, Menu } from "electron";
+	import path from "path";
+
+	const __dirname = import.meta.dirname;
+
+	const createWindow = () => {
+		const win = new BrowserWindow({
+			width: 800,
+			height: 600,
+			autoHideMenuBar: false,
+			webPreferences: {
+				nodeIntegration: false,
+			}
+
+		});
+
+		Menu.setApplicationMenu(null);
+		
+		win.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
+	}
+
+	app.whenReady().then(createWindow);
+	
+8.- Crear la carpeta renderer y dentro el archivo index.html
+	
+9.- Configurar tu archivo package.json
+	las siguentes claves:
+	
+	"main": "src/main.js",
+	
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "electron ."
+	},
+	
+10.- Ejecutar la aplicación desde la terminal con el comando:
+
+	npm start
