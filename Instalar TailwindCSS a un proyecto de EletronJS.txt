@@ -9,7 +9,8 @@ Instalar TailwindCSS a un proyecto de EletronJS
 2.- Dentro de la carpeta renderer crea la carpeta styles y dentro crea los
 	archivos input.css y output.css
 	
-	renderer/
+	src/
+	└── renderer/
 		├── index.html
 		├── renderer.js
 		└── styles/
@@ -25,8 +26,9 @@ Instalar TailwindCSS a un proyecto de EletronJS
 4.- En tu archivo package.json en la clave scripts agrega esta 2 clave
 	despues de start
 	
-    "tailwind": "npx @tailwindcss/cli -i ./renderer/styles/input.css -o ./renderer/styles/output.css --watch",
-    "dev": "concurrently \"npm run tailwind\" \"npm run start\""
+    "tailwind:build": "npx @tailwindcss/cli -i ./src/renderer/styles/input.css -o ./src/renderer/styles/output.css",
+    "tailwind": "npx @tailwindcss/cli -i ./src/renderer/styles/input.css -o ./src/renderer/styles/output.css --watch",
+    "dev": "npm run tailwind:build && concurrently \"npm run tailwind\" \"npm run start\""    
 	
 5.- En tu archivo index.html hacer el enlace a styles/output.css
 
